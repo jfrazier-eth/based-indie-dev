@@ -1,0 +1,44 @@
+{
+  "name": "based-indie-dev",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "be:dev": "yarn migrate:dev up && ts-node --project tsconfig.backend.json ./src/be/index.ts",
+    "be:build": "rimraf dist && tsc --project tsconfig.backend.json",
+    "be:start": "yarn migrate up && node ./dist/be/index.js",
+    "migrate:dev": "ts-node -r dotenv/config --project tsconfig.backend.json node_modules/node-pg-migrate/bin/node-pg-migrate",
+    "migrate": "ts-node --project tsconfig.backend.json node_modules/node-pg-migrate/bin/node-pg-migrate"
+  },
+  "dependencies": {
+    "neverthrow": "^6.1.0",
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  },
+  "optionalDependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "node-pg-migrate": "^6.2.2",
+    "pg": "^8.11.3",
+    "pg-promise": "^11.5.4"
+  }
+}
