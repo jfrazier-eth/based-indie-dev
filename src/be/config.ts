@@ -22,6 +22,9 @@ if (env === "prod") {
 
 export const config = {
   env,
+  redis: {
+    connectionUrl: getEnvVariable("REDIS_URL"),
+  },
   pg: {
     connectionUrl: getEnvVariable("DATABASE_URL"),
   },
